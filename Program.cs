@@ -21,20 +21,20 @@ public class Program
         }
         //for //-> arr[0] + arr[1] + ... + arr[i]
         return result;
-                    //or
-                    //Array.ForEach(arr, delegate (int i) {sumOfArray += i; });
-                    //return 0;
-                    //int sumOfArray = 0;
-                    //Array.ForEach(arr, delegate (int i) {sumOfArray += i; });
-                    //Console.WriteLine(sumOfArray);
+        //or
+        //Array.ForEach(arr, delegate (int i) {sumOfArray += i; });
+        //return 0;
+        //int sumOfArray = 0;
+        //Array.ForEach(arr, delegate (int i) {sumOfArray += i; });
+        //Console.WriteLine(sumOfArray);
 
-                    //or
-                    //int sum = arr.Sum();
+        //or
+        //int sum = arr.Sum();
     }
     public static void Main() {
         int a = 7;
         int b = 8;
-        int x = sum(a,b);
+        int x = sum(a, b);
         Console.WriteLine(x);
     }
     /**
@@ -57,7 +57,7 @@ public class Program
      * computes the sum of those numbers
      */
 
-    public static int sumAll(params int[]sum)
+    public static int sumAll(params int[] sum)
     {
         int result = 0;
         for (int i = 0; i < sum.Length; i++)
@@ -66,14 +66,14 @@ public class Program
         }
         return result;
     }
-            //or
-            //{
-            //sumOfArray 
-            //}
-            //return result;
-            //
-            //or
-            //return sumOfArray (x);
+    //or
+    //{
+    //sumOfArray 
+    //}
+    //return result;
+    //
+    //or
+    //return sumOfArray (x);
     /**
      * PART 2
      *
@@ -100,10 +100,10 @@ public class Program
         List<int> B = getDivisors(b);  //getDivisors runs on int a&b and gets passed into List A and B
         int greatest = 1;
 
-        foreach(int i in A)
+        foreach (int i in A)
         {                       //this whole loop w/in a loop is to store the largest value common to both lists, the GCD
             if (B.Contains(i))
-                greatest = i; 
+                greatest = i;
         }
 
         return greatest;
@@ -159,29 +159,28 @@ public class Program
      * - for every number that is a multiple of 3 and 5, return "fizzbuzz"
      */
 
-    public static List<int>fizzBuzz(int n)
+    public static List<int> fizzbuzz(int n)
     {
         List<int> fB = new List<int>(n);
         for (int i = 1; i <= n; i++)
         {
-            if (i % 3 == 0)
+            if (n % 3 == 0)
             {
-                fB.Add(i.ToString "fizz"); //needs to be fizz 
+                n.ToString("fizz"); //needs to be fizz 
             }
-            else if (i % 5 == 0)
+            else if (n % 5 == 0)
             {
-                fB.AddRange(i.Equals, "buzz"); //buzz
+                n.ToString("buzz"); //buzz
             }
-            else if (n % 3==0 && n % 5 == 0)
+            else if (n % 3 == 0 && n % 5 == 0)
             {
-                fB.Add(n); //fizzbuzz
+                n.ToString("fizzbuzz"); //fizzbuzz
             }
-            else 
+            else
             {
-                fB.Add(n);  // "."
+                n.ToString(".");  // "."
             }
         }
-
         return fB;
     }
 
@@ -194,8 +193,8 @@ public class Program
 
     public static int max(int a, int b)
     {
-        // YOUR CODE HERE
-        return 0;
+        int x = Math.Max(a, b);
+        return x;
     }
 
     /**
@@ -207,8 +206,9 @@ public class Program
 
     public static int maxOfThree(int a, int b, int c)
     {
-        // YOUR CODE HERE
-        return 0;
+        int y = max(a, b);
+        int z = Math.Max(y, c);
+        return z;
     }
 
     /**
@@ -220,8 +220,9 @@ public class Program
 
     public static int maxOfAll()
     {
-        // YOUR CODE HERE
-        return 0;
+        List<int> numbers = new List<int>();
+        int max = numbers.Max();
+        return max;
     }
 
     /**
@@ -231,11 +232,30 @@ public class Program
      * and returns true if it is a vowel, false otherwise.
      */
 
-    public static bool isVowel(string c)
+
+
+    //public enum vowels
+    //{
+    //    a, e, i, o, u
+    //}
+
+    public static bool isVowel(string myString)
     {
-        // YOUR CODE HERE
-        return false;
-    }
+        string myString=new string;
+     
+        for (int i = 0; i < myString.Length; i++)
+        {
+            if (myString[i] == 'a' || myString[i] == 'e' ||
+                myString[i] == 'i' || myString[i] == 'o' ||
+                myString[i] == 'u')
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
 
     /**
      * PART 8
@@ -251,7 +271,13 @@ public class Program
 
     public static string rovarspraket(string s)
     {
-        // YOUR CODE HERE
+        public enum Vowel
+        {
+            a,b,c,d,e
+        }
+        char[] input = new char[] { 'a', 'e', 'i', 'o', 'u' };
+        string vow = new string(vowels);
+        
         return "";
     }
 
