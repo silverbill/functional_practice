@@ -1,0 +1,2 @@
+C:\Users\bryansory\Code\functional_practice\functional_practice\bin\Debug\functional_practice.exe.config
+C:\Users\bryansory\Code\functional_practice\functional_practice\obj\Debug\functional_practice.csprojResolveAssemblyReference.cache
