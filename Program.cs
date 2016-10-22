@@ -3,6 +3,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Collections.Generic;
 
+
 public class Program
 {
 
@@ -21,6 +22,7 @@ public class Program
         }
         //for //-> arr[0] + arr[1] + ... + arr[i]
         return result;
+    }
         //or
         //Array.ForEach(arr, delegate (int i) {sumOfArray += i; });
         //return 0;
@@ -30,13 +32,13 @@ public class Program
 
         //or
         //int sum = arr.Sum();
-    }
-    public static void Main() {
-        int a = 7;
-        int b = 8;
-        int x = sum(a, b);
-        Console.WriteLine(x);
-    }
+    // }
+    // public static void Main() {
+    //     int a = 7;
+    //     int b = 8;
+    //     int x = sum(a, b);
+    //     Console.WriteLine(x);
+    // }
     /**
      * PART 1
      *
@@ -66,20 +68,12 @@ public class Program
         }
         return result;
     }
-    //or
-    //{
-    //sumOfArray 
-    //}
-    //return result;
-    //
-    //or
-    //return sumOfArray (x);
-    /**
-     * PART 2
-     *
-     * write a function that finds the Greatest Common Denominator of two numbers
-     * - if no GCD exists, return 1
-     */
+
+    //  * PART 2
+    //  *
+    //  * write a function that finds the Greatest Common Denominator of two numbers
+    //  * - if no GCD exists, return 1
+    //  */
     public static List<int> getDivisors(int x) //a method that creates a list called getDivisors which takes an argument x of type integer 
     {
         List<int> divisors = new List<int>();
@@ -120,34 +114,6 @@ public class Program
         int x = a * b / GCD(a, b);  //< -this works b/ c a fast way to find LCM is a*b / GCD and we already have a function for GCD.
         return x;
     }
-
-
-    //ask why that below didn't work
-
-    //public static List<int> getMultiples(int x) //a method that creates a list called getMultiples which takes an argument x of type integer 
-    //{
-    //    List<int> multiples = new List<int>();
-
-    //    for (int i = 1; i <= x; i++)
-    //    {
-    //        if (x * i)/x = 0) 
-    //        {
-    //            multiples.Add(x);
-    //        }
-    //    }
-    //    return multiples;
-    //}
-    //List<int> A = getMultiples(a);  
-    //List<int> B = getMultiples(b);  
-    //int leastest = 1;
-
-    //foreach (int i in A)
-    //{                       
-    //    if (B.Contains(i))
-    //        leastest = i;
-    //}
-
-    //return leastest;
 
     /**
      * Part 4
@@ -239,23 +205,24 @@ public class Program
     //    a, e, i, o, u
     //}
 
-    public static bool isVowel(string myString)
-    {
-        string myString=new string;
+    // public static bool isVowel(string myString)
+    // {
+    //     string myString1=new string;
      
-        for (int i = 0; i < myString.Length; i++)
-        {
-            if (myString[i] == 'a' || myString[i] == 'e' ||
-                myString[i] == 'i' || myString[i] == 'o' ||
-                myString[i] == 'u')
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
+    //     for (int i = 0; i < myString1.Length; i++)
+    //     {
+    //         if (myString1[i] == 'a' || myString1[i] == 'e' ||
+    //             myString1[i] == 'i' || myString1[i] == 'o' ||
+    //             myString1[i] == 'u')
+    //         {
+    //             return true;
+    //         }
+    //         else
+    //         {
+    //             return false;
+    //         }
+    //     }
+    // }  
 
     /**
      * PART 8
@@ -269,18 +236,41 @@ public class Program
 
      */
 
-    public static string rovarspraket(string s)
+        public static string rovarspraket(string s){
+        VowelChecker checker = new VowelChecker();
+        string rovarspraket = " " ;
+        char[] list = s // string
+                    .ToLower() // string
+                    .ToCharArray();
+            foreach(char c in list){
+                if (checker.ContainsVowel(c)){
+                    rovarspraket += c.ToString();
+                }
+                else{
+                    rovarspraket += c + "o" + c;
+                }
+            }
+    return rovarspraket;            
+    }                        
+      
+    public class VowelChecker
     {
-        public enum Vowel
+    public char[] vowels = new [] {'a', 'A', 'e', 'E', 'i', 'I', 'o', 'O', 'u', 'U'};
+
+    public bool ContainsVowel(char c)
+    {
+        foreach (char vowel in vowels)
         {
-            a,b,c,d,e
+            if (c == vowel)
+            {
+                return true;
+            }
         }
-        char[] input = new char[] { 'a', 'e', 'i', 'o', 'u' };
-        string vow = new string(vowels);
-        
-        return "";
+        return false;
+    
     }
 
+    };
     /**
      * Part 9
      *
@@ -292,10 +282,10 @@ public class Program
 
     public static string reverse(string str)
     {
-        // YOUR CODE HERE
-        return "";
+        char[] charArray = str.ToCharArray();
+        Array.Reverse( charArray );
+        return new string( charArray );   
     }
-
     /**
      * Part 10
      *
@@ -307,67 +297,29 @@ public class Program
 
     public static string findLongestWord(string sentence)
     {
-        // YOUR CODE HERE
-        return "";
+        string [] word = sentence.Split(new char[]{ ' ' });
+        return word.OrderBy(n => n.Length).Last();
+        
     }
 
     public static void Main()
     {
-        Debug.Assert(sumOfArray(new int[] { 1, 2 }) == 3);
-        Debug.Assert(sumOfArray(new int[0]) == 0);
-        Debug.Assert(sumOfArray(new int[] { 1, 2, 3 }) == 6);
-        Debug.Assert(sumOfArray(new int[] { 10, 9, 8 }) == 27);
+        Console.WriteLine(findLongestWord("adminis a quick brown fox"));
+        //Console.WriteLine(rovarspraket("javascript"));
 
-        Debug.Assert(sum(8, 11) == 19);
-        Debug.Assert(sum(4, 100) == 104);
+        //Console.WriteLine(reverse("books"));
+        //Debug.Assert(reverse("we don't want no trouble") == "elbuort on tnaw t'nod ew");
 
-        Debug.Assert(sumAll(8, 11) == 19);
-        Debug.Assert(sumAll(4, 100) == 104);
-        Debug.Assert(sumAll(8, 11, 20, 30, 11) == 80);
-        Debug.Assert(sumAll(4, 100, 1, 4, -10, 15, 21) == 135);
-
-        Debug.Assert(GCD(5, 1) == 1);
-        Debug.Assert(GCD(15, 3) == 3);
-        Debug.Assert(GCD(15, 5) == 5);
-        Debug.Assert(GCD(50, 20) == 10);
-
-        Debug.Assert(LCM(10, 10) == 10);
-        Debug.Assert(LCM(2, 5) == 10);
-        Debug.Assert(LCM(3, 6) == 6);
-        Debug.Assert(LCM(0, 1) == 1);
-
-        Debug.Assert(fizzbuzz(1) == ".");
-        Debug.Assert(fizzbuzz(2) == "..");
-        Debug.Assert(fizzbuzz(3) == "..fizz");
-        Debug.Assert(fizzbuzz(5) == "..fizz.buzz");
-        Debug.Assert(fizzbuzz(10) == "..fizz.buzzfizz..fizzbuzz");
-
-        Debug.Assert(max(1, 3) == 3);
-        Debug.Assert(max(0, 3) == 3);
-        Debug.Assert(max(10, 3) == 10);
-        Debug.Assert(max(-1, -3) == -1);
-
-        Debug.Assert(maxOfThree(1, 3, 2) == 3);
-        Debug.Assert(maxOfThree(0, 3, -1) == 3);
-        Debug.Assert(maxOfThree(10, 3, 50) == 50);
-        Debug.Assert(maxOfThree(-1, -3, -10) == -1);
-        Debug.Assert(maxOfAll(-30, -50, -1, -3, -10, -11, -20) == -1);
-        Debug.Assert(maxOfAll(10, 20, 11, 53, 100, 211, -20) == 211);
-
-        Debug.Assert(isVowel("B") == false);
-        Debug.Assert(isVowel("b") == false);
-        Debug.Assert(isVowel("a") == true);
-        Debug.Assert(isVowel("E") == true);
-
-        Debug.Assert(rovarspraket("a") == "a");
-        Debug.Assert(rovarspraket("b") == "bob");
-        Debug.Assert(rovarspraket("cat") == "cocatot");
-        Debug.Assert(rovarspraket("javascript") == "jojavovasoscocroripoptot");
-
-        Debug.Assert(reverse("books") == "skoob");
-        Debug.Assert(reverse("we don't want no trouble") == "elbuort on tnaw t'nod ew");
-
-        Debug.Assert(findLongestWord("book dogs") == "book");
-        Debug.Assert(findLongestWord("don't mess with Texas") == "Texas");
+        // Debug.Assert(findLongestWord("book dogs") == "book");
+        // Debug.Assert(findLongestWord("don't mess with Texas") == "Texas");
     }
-}
+    
+
+}    
+
+    
+
+
+
+
+
