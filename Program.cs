@@ -205,7 +205,7 @@ public class Program
     //    a, e, i, o, u
     //}
 
-    // public static bool isVowel(string myString)
+    // public static bool isVowel(string myString)                      
     // {
     //     string myString1=new string;
      
@@ -254,6 +254,10 @@ public class Program
     }                        
       
     public class VowelChecker
+        //the lambda function I was able to use for my vowel checker ~ Chris
+        //string[] vowels = { "a", "e", "i", "o", "u" };
+        //return vowels.Where(x => x == c.ToLower()).Count() != 0;
+        
     {
     public char[] vowels = new [] {'a', 'A', 'e', 'E', 'i', 'I', 'o', 'O', 'u', 'U'};
 
